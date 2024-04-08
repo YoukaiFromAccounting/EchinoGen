@@ -1,0 +1,20 @@
+---
+title: "XP_003724498"
+output:
+  pdf_document: default
+  html_document: default
+date: "2024-04-08"
+---
+
+```{r setup}
+library(ASEB)
+
+backgroundSites <- readSequence("/Users/zhanglinqi/ASEB/extdata/background_sites.fa")
+prodefinedSites <- readSequence("/Users/zhanglinqi/ASEB/extdata/predefined_sites.fa")
+testProteins <- readSequence("/Users/zhanglinqi/ASEB/extdata/XP_799905.fa")
+resultList <- asebProteins(backgroundSites, prodefinedSites, testProteins, permutationTimes=100)
+
+resultList$results
+
+drawStat(curveInfoDataFrame=resultList$curveInfo)
+```
