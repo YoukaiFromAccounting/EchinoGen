@@ -17,4 +17,6 @@ resultList <- asebProteins(backgroundSites, prodefinedSites, testProteins, permu
 resultList$results
 
 drawStat(curveInfoDataFrame=resultList$curveInfo)
+
+write.csv(resultList$results, "/Users/zhanglinqi/ASEB/XP_801757_result.csv")
 ```
