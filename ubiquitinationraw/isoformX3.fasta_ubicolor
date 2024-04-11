@@ -1,0 +1,23 @@
+>XP_003724499.1 IgGFc-binding protein isoform X3 [Strongylocentrotus purpuratus]
+=MGVIFYLTIALTAMLATLSQAQRAQAPLDTTG<u title="Position: 33;  Ubiquitylation: Y;  Score: 0.720387"><font color=#ff00ff>K</Font></u>EFVFAFQSNFQN<u title="Position: 46;  Ubiquitylation: Y;  Score: 0.508865"><font color=#ff00ff>K</Font></u>RPD<u title="Position: 50;  Ubiquitylation: Y;  Score: 0.635931"><font color=#ff00ff>K</Font></u>LSLLIGANEPGLTRVQIEAP<br>NFNWQQTVQLQH<u title="Position: 83;  Ubiquitylation: Y;  Score: 0.534448"><font color=#ff00ff>K</Font></u>QVRNVDINPDVAARGAGPVNGTLIVRAT<u title="Position: 112;  Ubiquitylation: Y;  Score: 0.538143"><font color=#ff00ff>K</Font></u>DVSISGLNSLTMTNDAFLAIPTHGLGQE<br>YYVASYDPVPIEMSQFLITGIQPDTSV<u title="Position: 168;  Ubiquitylation: Y;  Score: 0.836998"><font color=#ff00ff>K</Font></u>IVLQARLQHNSQWYS<u title="Position: 184;  Ubiquitylation: Y;  Score: 0.538733"><font color=#ff00ff>K</Font></u>GQTLTVNVG<u title="Position: 194;  Ubiquitylation: N;  Score: 0.475972"><font color=#bbbbbb>K</Font></u>YQSIQFQSQEDLTGT<u title="Position: 210;  Ubiquitylation: Y;  Score: 0.664019"><font color=#ff00ff>K</Font></u><br>ITST<u title="Position: 215;  Ubiquitylation: N;  Score: 0.5"><font color=#bbbbbb>K</Font></u>PLSVMSGASCTLVPTQVYRCDHLVEHLPPFNTWG<u title="Position: 250;  Ubiquitylation: Y;  Score: 0.520865"><font color=#ff00ff>K</Font></u>RFTLLPFSNRSGGFIFRIIAGRPSTTVHIM<br>GNNVQLQFEGSFREFNQPASL<u title="Position: 302;  Ubiquitylation: Y;  Score: 0.722774"><font color=#ff00ff>K</Font></u>TTLQSD<u title="Position: 309;  Ubiquitylation: Y;  Score: 0.599001"><font color=#ff00ff>K</Font></u>PIMVVQYA<u title="Position: 318;  Ubiquitylation: Y;  Score: 0.645456"><font color=#ff00ff>K</Font></u>GMQ<u title="Position: 322;  Ubiquitylation: Y;  Score: 0.681157"><font color=#ff00ff>K</Font></u>DNNGDPFMTLIPPVEQYME<u title="Position: 342;  Ubiquitylation: Y;  Score: 0.670733"><font color=#ff00ff>K</Font></u>EITFGSFN<br>QSGTDMLNMFAGVSFTSPALFTMSLNG<u title="Position: 378;  Ubiquitylation: Y;  Score: 0.577489"><font color=#ff00ff>K</Font></u>PAFEPSTGIPGTGISRTFTADATVPLDDVRNILTNYE<u title="Position: 416;  Ubiquitylation: Y;  Score: 0.837321"><font color=#ff00ff>K</Font></u>DVRF<br>MAVIYGFASGTSFGYPAAYQLRQLTCTRPGRQGPEAEYDCPETHRRPRPTAPVVPVGPGGGGDGAAMTGC<br>TS<u title="Position: 493;  Ubiquitylation: N;  Score: 0.246594"><font color=#bbbbbb>K</Font></u>GVVVLAAILPALIVFIIMVIILVFVLYRMRR<u title="Position: 525;  Ubiquitylation: N;  Score: 0.135443"><font color=#bbbbbb>K</Font></u>F
+<br>
+33	RAQAPLDTTGKEFVFAFQSNF	1	0.720387
+46	VFAFQSNFQNKRPDKLSLLIG	1	0.508865
+50	QSNFQNKRPDKLSLLIGANEP	1	0.635931
+83	NWQQTVQLQHKQVRNVDINPD	1	0.534448
+112	VNGTLIVRATKDVSISGLNSL	1	0.538143
+168	ITGIQPDTSVKIVLQARLQHN	1	0.836998
+184	RLQHNSQWYSKGQTLTVNVGK	1	0.538733
+194	KGQTLTVNVGKYQSIQFQSQE	0	0.475972
+210	FQSQEDLTGTKITSTKPLSVM	1	0.664019
+215	DLTGTKITSTKPLSVMSGASC	0	0.5
+250	EHLPPFNTWGKRFTLLPFSNR	1	0.520865
+302	FREFNQPASLKTTLQSDKPIM	1	0.722774
+309	ASLKTTLQSDKPIMVVQYAKG	1	0.599001
+318	DKPIMVVQYAKGMQKDNNGDP	1	0.645456
+322	MVVQYAKGMQKDNNGDPFMTL	1	0.681157
+342	LIPPVEQYMEKEITFGSFNQS	1	0.670733
+378	PALFTMSLNGKPAFEPSTGIP	1	0.577489
+416	DVRNILTNYEKDVRFMAVIYG	1	0.837321
+493	DGAAMTGCTSKGVVVLAAILP	0	0.246594
+525	LVFVLYRMRRKF	0	0.135443

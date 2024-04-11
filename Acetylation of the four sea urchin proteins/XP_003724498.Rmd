@@ -11,7 +11,7 @@ library(ASEB)
 
 backgroundSites <- readSequence("/Users/zhanglinqi/ASEB/extdata/background_sites.fa")
 prodefinedSites <- readSequence("/Users/zhanglinqi/ASEB/extdata/predefined_sites.fa")
-testProteins <- readSequence("/Users/zhanglinqi/ASEB/extdata/XP_799905.fa")
+testProteins <- readSequence("/Users/zhanglinqi/ASEB/extdata/XP_003724498.fasta")
 resultList <- asebProteins(backgroundSites, prodefinedSites, testProteins, permutationTimes=100)
 
 resultList$results
