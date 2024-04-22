@@ -1,0 +1,12 @@
+asebProteins	asebProteins
+asebProteins,character,character,character-method	asebProteins
+asebProteins,SequenceInfo,SequenceInfo,SequenceInfo-method	asebProteins
+asebSites	asebSites
+asebSites,character,character,character-method	asebSites
+asebSites,SequenceInfo,SequenceInfo,SequenceInfo-method	asebSites
+drawEScurve	drawEScurve
+drawEScurve,data.frame-method	drawEScurve
+drawStat	drawStat
+drawStat,data.frame-method	drawStat
+readSequence	readSequence
+SequenceInfo	SequenceInfo

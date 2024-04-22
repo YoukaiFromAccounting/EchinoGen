@@ -1,0 +1,21 @@
+Package: ASEB
+Title: Predict Acetylated Lysine Sites
+Version: 1.46.3
+Author: Likun Wang <wanglk@pku.edu.cn> and Tingting Li <litt@hsc.pku.edu.cn>.
+Description: ASEB is an R package to predict lysine sites that can be acetylated by a specific KAT-family.
+Maintainer: Likun Wang <wanglk@pku.edu.cn>
+Depends: R (>= 2.8.0), methods
+Imports: graphics, methods, utils
+License: GPL (>= 3)
+biocViews: Proteomics
+Collate: AllClasses.R AllGenerics.R SequenceInfo.R readSequence.R
+        asebSites.R asebProteins.R drawStat.R drawEScurve.R
+LazyLoad: yes
+git_url: https://git.bioconductor.org/packages/ASEB
+git_branch: RELEASE_3_18
+git_last_commit: 99edb08
+git_last_commit_date: 2023-11-07
+Date/Publication: 2023-11-08
+NeedsCompilation: yes
+Packaged: 2023-11-08 20:48:42 UTC; biocbuild
+Built: R 4.3.2; x86_64-apple-darwin20; 2023-11-09 04:23:29 UTC; unix

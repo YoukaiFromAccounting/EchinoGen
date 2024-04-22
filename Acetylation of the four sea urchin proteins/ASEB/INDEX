@@ -1,0 +1,9 @@
+SequenceInfo            "SequenceInfo" class
+asebProteins            prediction of all lysine sites on a specific
+                        protein that can be acetylated
+asebSites               prediction of lysine sites that can be
+                        acetylated
+drawEScurve             draw Enriment Score curves for specific sites
+drawStat                draw P-values and enrichment scores for all
+                        lysine sites on a specific protein
+readSequence            read sequences from file

@@ -1,0 +1,11 @@
+##Namespace file for DEGseq package
+useDynLib(ASEB,.registration = TRUE)
+importClassesFrom(methods, call, character, matrix)
+importFrom(graphics, plot, points, text)
+importFrom(utils, flush.console, read.table, write.table)
+export("SequenceInfo")
+export("readSequence")
+export("asebSites")
+export("asebProteins")
+export("drawStat")
+export("drawEScurve")
