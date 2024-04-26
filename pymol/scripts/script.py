@@ -1,26 +1,35 @@
+import sys
 import pymol
-from pymol import cmd, stored
+from pymol import cmd
 
-# initialize PyMOL
-pymol.finish_launching()
+# Initialize PyMOL if not already running in a script
+if not hasattr(sys, 'argv'):
+    pymol.finish_launching()
 
-# load the PDB file
-cmd.load("./isoform3.pdb", "isoform3_structure") # file name, object name
+# Function to load a file and label residues based on command arguments
+def load_and_label(file_name, residue_numbers):
+    # Parse residue numbers assuming they are comma-separated
+    residue_numbers = residue_numbers.split(' ')
+    structure_name = load_in_pdb(file_name)
+    label_residues(structure_name, residue_numbers)
 
-# # run the script 'findseq.py' with arguments
-# cmd.run("./findseq.py")
-# cmd.do("findseq EDTYY, 2wtt")
+# Load the PDB file
+def load_in_pdb(file_name):
+    parts = file_name.split('.')
+    structure_name = parts[0] + "_structure"
+    cmd.load(file_name, structure_name)
+    return structure_name
 
-# # get the names of all loaded molecular objects
-# object_names = cmd.get_names(type='selections')
-# print(object_names)
-# # color the selected atoms
-# cmd.color("red", object_names[0])
-# # change the representation of the selected atoms
-# cmd.show("licorice", object_names[0])
+# Select and label residues
+def label_residues(structure_name, residue_numbers):
+    residue_numbers_str = '+'.join(residue_numbers)
+    cmd.select("residues", f"{structure_name} and resi {residue_numbers_str}")
+    cmd.label("residues", "name+resi")
 
-# label the selected atoms
-label_index = [33, 46, 50, 83]
-for i in label_index:
-    cmd.color("red", f"resi {i}")
-    cmd.show("locorice", f"resi {i}")
+# Extend cmd with new function
+cmd.extend("load_and_label", load_and_label)
+cmd.load_and_label = load_and_label
+
+# Setup command-line argument auto-completion
+cmd.auto_arg[1]['load_and_label'] = [lambda: cmd.Shortcut("isoform1.pdb"), 'file_name', '']
+cmd.auto_arg[2]['load_and_label'] = [lambda: cmd.Shortcut("12 13 14"), 'residue_numbers', '']
