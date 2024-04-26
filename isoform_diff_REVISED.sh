@@ -68,24 +68,36 @@ if [ $? -eq 0 ]; then
 	
 	echo "Moving results files..."
 	# Create the PTM_Results directory if it doesn't exist
+	cd ..
 	mkdir -p PTM_Results
 	
 	# Move the output files from glycan_detection directory to PTM_Results directory
-	mv glycan_detection/*_glycans_binary.out PTM_Results/
+	mv glycan_detection/*_glycans_pos.out PTM_Results/
 	
 	# Move the fasta_ubicolor files from ESA-UbiSite directories to PTM_Results directory
 	mv ESA-UbiSite/*/*.fasta_ubicolor PTM_Results/
-
-	# Run the rmsd_plot.py on each file in file_names 
-
-	length=${#file_names[@]}
-
-	for ((i=1; i<"$length"; i)) do
-		python3 rmsd_plot.py ${file_names[$i]} ${file_names[$i-1]}
-		#### THIS STEP IS LEADING TO AN INFINITE LOOP CURRENTLY
-		# mv *.png PTM_Results/
+	
+	# Rename files
+	echo "Parsing files..."
+	directory="PTM_Results"
+	for file in "$directory"/*_glycans_pos.out; do
+		if [[ $file =~ ([^/]+)_glycans_pos\.out ]]; then
+			file_id="${BASH_REMATCH[1]}"
+			#echo "BINARY $file_id"
+			mv "$file" "$directory/NLG_${file_id}.txt"
+		fi
 	done
+	for file in "$directory"/*.fasta_ubicolor; do
+		if [[ $file =~ ([^/]+)\.fasta_ubicolor ]]; then
+			file_id="${BASH_REMATCH[1]}"
+			mv "$file" "$directory/UBI_${file_id}.txt"
+		fi
+	done
+	echo "Aggregating PTM results..."
+	python3 results_agg.py
 
+	echo ""
+	echo "Post-Translational Modifications retrieved!"
 	
 else
     echo "Error: echino_setup.sh script failed to complete."
