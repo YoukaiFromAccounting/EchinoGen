@@ -2,7 +2,7 @@
 
 #Run echino_setup.sh script
 echo "Running echino_setup.sh script..."
-./echino_setup.sh
+./echino_setup_REVISED.sh
 
 #### Read in the URLS and run wget requests from here
 #### Save the protein names in an array to access later when calling glycan detection etc. 
@@ -30,23 +30,19 @@ while IFS= read -r url; do
 done < "$input_file"
 
 ### Revise the rest below to instead to loop through array of isoform names and run glycan detection that way
-
+ 
 #Check if echino_setup.sh script was successful
 if [ $? -eq 0 ]; then
     echo "echino_setup.sh script completed successfully."
 
-    #Run N-linked glycan site detection, save results to file
-    echo "Running glycan_detection"
 	cd glycan_detection || exit
-	echo "Extracting NLG sites for p58_B..."
-	python3 glycan.py -in ../p58_B.fasta -out B -gap 0
-	echo "Extracting NLG sites for p58_A1..."
-	python3 glycan.py -in ../p58_A1.fasta -out A1 -gap 0
-	echo "Extracting NLG sites for p58_A2..."
-	python3 glycan.py -in ../p58_A2.fasta -out A2 -gap 0
-	echo "Extracting NLG sites for p58_A3..."
-	python3 glycan.py -in ../p58_A3.fasta -out A3 -gap 0
-	cd ..
+
+	# loop through file names and run glycan detection on each fasta file
+	for file in "$filenames"; do
+		python3 glycan.py -in ../"$file".fasta -out "$file" -gap 0
+	done
+
+	### This portion still needs revision to remove hard coding
 	
 	#Run ubiquitination site detection, save results to file
 	echo "Building AAIndex..."
