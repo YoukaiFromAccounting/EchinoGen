@@ -98,7 +98,13 @@ if [ $? -eq 0 ]; then
 
 	echo ""
 	echo "Post-Translational Modifications retrieved!"
-	
+
+ 	echo "Running ESMFold, retrieving structure files..."
+	#Run ESMFold from python calls
+	for file in "${file_names[@]}"; do
+		python esm_nstart.py "$file"
+	done
+	echo "ESMFold predictions completed!" 
 else
     echo "Error: echino_setup.sh script failed to complete."
 fi
