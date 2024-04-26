@@ -2,3 +2,4 @@ https://www.ncbi.nlm.nih.gov/protein/XP_799905.2?report=fasta
 https://www.ncbi.nlm.nih.gov/protein/XP_801757.1?report=fasta
 https://www.ncbi.nlm.nih.gov/protein/XP_003724498.1?report=fasta
 https://www.ncbi.nlm.nih.gov/protein/XP_799905.2?report=fasta
+https://www.ncbi.nlm.nih.gov/sviewer/viewer.fcgi?tool=portal&sendto=on&log$=seqview&db=protein&dopt=fasta&sort=&val=XP_799905.2
