@@ -26,12 +26,6 @@ git clone https://github.com/davidmatten/glycan_detection
 echo "Downloading ubiquitination_detection software..."
 git clone https://github.com/NctuICLab/ESA-UbiSite
 
-#Download acetylation site detection software ACETYLATION
-
-#Download phosformer software PHOSPHORYLATION
-echo "Downloading phosformer software..."
-git clone https://github.com/waylandy/phosformer
-
 #Create and activate conda environment
 echo "Creating conda environment..."
 #conda env create -f environment.yaml
@@ -45,23 +39,5 @@ if ! python -c 'import pandas, argparse, os, regex, smallBixTools, numpy, scikit
     pip install pandas argparse regex smallBixTools numpy scikit-learn tensorflow matplotlib
 fi
 
-
-# #Download sea urchin protein fasta files from NCBI 
-# #Rename to p58_B
-# wget -O p58_B.fasta 'https://www.ncbi.nlm.nih.gov/sviewer/viewer.fcgi?tool=portal&sendto=on&log$=seqview&db=protein&dopt=fasta&sort=&val=XP_799905.2'
-# #Rename to p58_A1
-# wget -O p58_A1.fasta 'https://www.ncbi.nlm.nih.gov/sviewer/viewer.fcgi?tool=portal&sendto=on&log$=seqview&db=protein&dopt=fasta&sort=&val=XP_003724499.1'
-# #Rename to p58_A2
-# wget -O p58_A2.fasta 'https://www.ncbi.nlm.nih.gov/sviewer/viewer.fcgi?tool=portal&sendto=on&log$=seqview&db=protein&dopt=fasta&sort=&val=72005711'
-# #Rename to p58_A3
-# wget -O p58_A3.fasta 'https://www.ncbi.nlm.nih.gov/sviewer/viewer.fcgi?tool=portal&sendto=on&log$=seqview&db=protein&dopt=fasta&sort=&val=XP_003724498.1'
-
-# #Download sample protein fasta file 
-# echo "Downloading sample protein fasta file..."
-# wget -O sample_protein.fasta 'https://www.uniprot.org/uniprot/P12345.fasta'
-
-# #Run glycan_detection with the sample protein fasta file
-# echo "Running glycan_detection with sample protein fasta file..."
-# ./glycan_detection sample_protein.fasta
 
 echo "Setup complete."

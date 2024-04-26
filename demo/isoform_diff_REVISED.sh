@@ -67,10 +67,21 @@ if [ $? -eq 0 ]; then
 	mkdir -p PTM_Results
 	
 	# Move the output files from glycan_detection directory to PTM_Results directory
-	mv glycan_detection/*p58_A*_glycans_binary.out PTM_Results/
+	mv glycan_detection/*_glycans_binary.out PTM_Results/
 	
 	# Move the fasta_ubicolor files from ESA-UbiSite directories to PTM_Results directory
-	mv ESA-UbiSite/*/p58_A*.fasta_ubicolor PTM_Results/
+	mv ESA-UbiSite/*/*.fasta_ubicolor PTM_Results/
+
+	# Run the rmsd_plot.py on each file in file_names 
+
+	length=${#file_names[@]}
+
+	for ((i=1; i<"$length"; i)) do
+		python3 rmsd_plot.py ${file_names[$i]} ${file_names[$i-1]}
+		#### THIS STEP IS LEADING TO AN INFINITE LOOP CURRENTLY
+		# mv *.png PTM_Results/
+	done
+
 	
 else
     echo "Error: echino_setup.sh script failed to complete."
