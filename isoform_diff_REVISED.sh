@@ -30,19 +30,21 @@ while IFS= read -r url; do
 done < "$input_file"
 
 ### Revise the rest below to instead to loop through array of isoform names and run glycan detection that way
+echo "FILE NAMES: ${file_names[@]}"
  
 #Check if echino_setup.sh script was successful
 if [ $? -eq 0 ]; then
-    echo "echino_setup.sh script completed successfully."
+	echo "echino_setup.sh script completed successfully."
 
 	cd glycan_detection || exit
 
 	# loop through file names and run glycan detection on each fasta file
-	for file in "$filenames"; do
-		python3 glycan.py -in ../"$file".fasta -out "$file" -gap 0
+	for file in "${file_names[@]}"; do
+		#DEBUG
+		python3 glycan.py -in ../"$file".fasta -out "" -gap 0
+		echo "GLYCAN PREDICTION COMPLETED ON" "$file"
 	done
 
-	
 	# Loop through file names and run ubiquitination site detection, save results to file for each fasta file
 	cd ..
 	echo "Building AAIndex..."
@@ -57,31 +59,45 @@ if [ $? -eq 0 ]; then
 	cd ..
 	cd ..
 	
-	for file in "$filenames"; do
+	echo "Starting ubiquitination prediciton"
+	for file in "${file_names[@]}"; do
 		mkdir "$file"_output
 		perl ESAUbiSite_main.pl ../"$file".fasta "$file"_output
+		echo "UBIQUITINATION PREDICTION COMPLETED ON" "$file"
 	done
 	
 	echo "Moving results files..."
 	# Create the PTM_Results directory if it doesn't exist
+	cd ..
 	mkdir -p PTM_Results
 	
 	# Move the output files from glycan_detection directory to PTM_Results directory
-	mv glycan_detection/*_glycans_binary.out PTM_Results/
+	mv glycan_detection/*_glycans_pos.out PTM_Results/
 	
 	# Move the fasta_ubicolor files from ESA-UbiSite directories to PTM_Results directory
 	mv ESA-UbiSite/*/*.fasta_ubicolor PTM_Results/
-
-	# Run the rmsd_plot.py on each file in file_names 
-
-	length=${#file_names[@]}
-
-	for ((i=1; i<"$length"; i)) do
-		python3 rmsd_plot.py ${file_names[$i]} ${file_names[$i-1]}
-		#### THIS STEP IS LEADING TO AN INFINITE LOOP CURRENTLY
-		# mv *.png PTM_Results/
+	
+	# Rename files
+	echo "Parsing files..."
+	directory="PTM_Results"
+	for file in "$directory"/*_glycans_pos.out; do
+		if [[ $file =~ ([^/]+)_glycans_pos\.out ]]; then
+			file_id="${BASH_REMATCH[1]}"
+			#echo "BINARY $file_id"
+			mv "$file" "$directory/NLG_${file_id}.txt"
+		fi
 	done
+	for file in "$directory"/*.fasta_ubicolor; do
+		if [[ $file =~ ([^/]+)\.fasta_ubicolor ]]; then
+			file_id="${BASH_REMATCH[1]}"
+			mv "$file" "$directory/UBI_${file_id}.txt"
+		fi
+	done
+	echo "Aggregating PTM results..."
+	python3 results_agg.py
 
+	echo ""
+	echo "Post-Translational Modifications retrieved!"
 	
 else
     echo "Error: echino_setup.sh script failed to complete."
