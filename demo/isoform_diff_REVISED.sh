@@ -22,7 +22,7 @@ fi
 while IFS= read -r url; do
     # Extract the name of the protein from the URL
     URL="$url"
-    name=$(echo "$url" | grep -oE '[^=]+$')
+    name=$(echo "$url" | sed 's/.*protein\/\([^?]*\)?.*/\1/')
     file_names+=("$name")
     # run wget request from the url and name the fasta file the protein name extracted from the URL
     wget -O "$name".fasta "$url"
