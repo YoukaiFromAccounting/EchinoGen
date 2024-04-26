@@ -19,13 +19,13 @@ if [ ! -f "$input_file" ]; then
 fi
 
 # Read each line from the file and extract the value after the last equal sign to represent protein name
-while IFS= read -r url; do
+while IFS= read -r name; do
     # Extract the name of the protein from the URL
-    URL="$url"
-    name=$(echo "$url" | sed 's/.*protein\/\([^?]*\)?.*/\1/')
+    name="$name"
+    URL="https://www.ncbi.nlm.nih.gov/sviewer/viewer.fcgi?tool=portal&sendto=on&log$=seqview&db=protein&dopt=fasta&sort=&val="
     file_names+=("$name")
     # run wget request from the url and name the fasta file the protein name extracted from the URL
-    wget -O "$name".fasta "$url"
+    wget -O "$name".fasta "$URL$name"
     echo "Downloading fasta file "$name""
 done < "$input_file"
 
