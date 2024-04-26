@@ -1,6 +1,7 @@
 import torch
 import esm
 import sys
+import os
 
 # Check if the correct number of command-line arguments are provided
 if len(sys.argv) != 2:
