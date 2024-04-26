@@ -102,7 +102,7 @@ if [ $? -eq 0 ]; then
  	echo "Running ESMFold, retrieving structure files..."
 	#Run ESMFold from python calls
 	for file in "${file_names[@]}"; do
-		python esm_nstart.py "$file"
+		python esm_nstart.py "$file.fasta"
 	done
 	echo "ESMFold predictions completed!" 
 else
