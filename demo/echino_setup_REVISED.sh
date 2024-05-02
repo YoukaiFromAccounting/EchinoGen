@@ -36,7 +36,7 @@ echo "Activating conda environment..."
 echo "Checking for required Python packages..."
 if ! python -c 'import pandas, argparse, os, regex, smallBixTools, numpy, scikit-learn, tensorflow, matplotlib' &> /dev/null; then
     echo "Installing required Python packages..."
-    pip install pandas argparse regex smallBixTools numpy scikit-learn tensorflow matplotlib
+    pip install pandas argparse regex smallBixTools numpy scikit-learn matplotlib
 fi
 
 
